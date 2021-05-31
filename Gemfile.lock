@@ -3,6 +3,13 @@ GEM
   specs:
     diff-lcs (1.4.4)
     dotenv (2.7.6)
+    httparty (0.18.1)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
+    mime-types (3.3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2021.0225)
+    multi_xml (0.6.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     rack (2.2.3)
@@ -28,14 +35,17 @@ GEM
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
     tilt (2.0.10)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
   dotenv (~> 2.7)
+  httparty (~> 0.18.1)
   rspec (~> 3.10)
   sinatra (~> 2.1)
+  zeitwerk (~> 2.4)
 
 BUNDLED WITH
    2.2.17
