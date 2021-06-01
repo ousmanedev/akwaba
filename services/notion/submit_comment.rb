@@ -14,7 +14,7 @@ module Notion
         private
 
         def build_properties
-            form_data.map do |property_name, _|
+            Comment::FIELDS.map do |property_name|
                 [
                     property_name,
                     [

@@ -1,0 +1,13 @@
+<form id="<%= parent_id %>" action="/comments/<%= database_id %>" method="post" class="comment-form" data-parent-type="<%= parent_type %>">
+    <div>
+        <input type="text" name="email" placeholder="Email" value="ousmanedev@gmail.com">
+    </div>
+    <div>
+        <input type="text" name="name" placeholder="Name" value="Rahmane Ousmane">
+    </div>
+    <div>
+        <input type="text" name="body" placeholder="Name" value="Awesome comment">
+    </div>
+    <input type="hidden" name="parent_id" value="<%= parent_id %>">
+    <input type="submit" name="Submit">
+</form>

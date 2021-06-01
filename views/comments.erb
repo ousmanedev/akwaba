@@ -1,19 +1,8 @@
 <div id="akwaba-comments">
-    <form action="/comments/<%= database_id %>" method="post" id="submit-comment">
-        <div>
-            <input type="text" name="email" placeholder="Email" value="ousmanedev@gmail.com">
-        </div>
-        <div>
-            <input type="text" name="name" placeholder="Name" value="Rahmane Ousmane">
-        </div>
-        <div>
-            <input type="text" name="body" placeholder="Name" value="Awesome comment">
-        </div>
-        <input type="submit" name="Submit">
-    </form>
+    <%= erb :comment_form, locals: { database_id: database_id, parent_type: 'root', parent_id: '' } %>
 
     <% comments.each do |comment| %>
-        <%= erb(:comment, locals: { comment: comment }) %>
+        <%= erb :comment, locals: { comment: comment, database_id: database_id } %>
     <% end %>
 </div>
 
@@ -34,5 +23,9 @@
 
     .body {
         font-size: 17px;
+    }
+
+    .comment-form[data-parent-type='comment'] {
+        display: none;
     }
 </style>

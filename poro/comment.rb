@@ -3,6 +3,8 @@ require 'date'
 class Comment
     attr_reader :data
 
+    FIELDS = %w(name email body url parent_id).freeze
+
     def initialize(data)
         @data = data
     end
@@ -15,7 +17,7 @@ class Comment
         Date.parse(@data['created_time']).strftime("%B %d, %Y")
     end
 
-    %w(name email body).each do |field|
+    FIELDS.each do |field|
         define_method field do
             content = Array(@data.dig('properties', field, 'rich_text'))[0]
             Hash(content).dig('text', 'content')

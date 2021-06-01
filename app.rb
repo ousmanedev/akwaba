@@ -5,7 +5,7 @@ require "zeitwerk"
 set :public_folder, File.join(Dir.pwd, 'public')
 
 loader = Zeitwerk::Loader.new
-AUTOLOAD_PATHS = %W(#{Dir.pwd} lib services poro views public)
+AUTOLOAD_PATHS =  %W(#{Dir.pwd} lib services poro views public)
 AUTOLOAD_PATHS.each { |path| loader.push_dir(path) }
 loader.enable_reloading
 loader.setup
@@ -17,11 +17,15 @@ end
 
 # Submit a comment
 post '/comments/:database_id' do |database_id|
-    form_data = params.slice(:email, :name, :body)
+    form_data = { 'url' => request.referrer }.merge(params.slice(:email, :name, :body, :parent_id))
 
-    Notion::SubmitComment.call(database_id: database_id, form_data: form_data)
+    response = Notion::SubmitComment.call(database_id: database_id, form_data: form_data)
 
-    redirect to(params.fetch(:redirect_uri, request.referrer))
+    if response.success?
+        redirect to(params.fetch(:redirect_uri, request.referrer))
+    else
+        body response.inspect
+    end
 end
 
 # Get all comments + commenting form
