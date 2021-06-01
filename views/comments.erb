@@ -1,0 +1,38 @@
+<div id="akwaba-comments">
+    <form action="/comments/<%= database_id %>" method="post" id="submit-comment">
+        <div>
+            <input type="text" name="email" placeholder="Email" value="ousmanedev@gmail.com">
+        </div>
+        <div>
+            <input type="text" name="name" placeholder="Name" value="Rahmane Ousmane">
+        </div>
+        <div>
+            <input type="text" name="body" placeholder="Name" value="Awesome comment">
+        </div>
+        <input type="submit" name="Submit">
+    </form>
+
+    <% comments.each do |comment| %>
+        <%= erb(:comment, locals: { comment: comment }) %>
+    <% end %>
+</div>
+
+<style>
+    #akwaba-comments > .comment-box {
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+    }
+
+    .name {
+        color: #828282;
+        font-size: 16px;
+    }
+
+    .date {
+        font-size: 14px;
+    }
+
+    .body {
+        font-size: 17px;
+    }
+</style>

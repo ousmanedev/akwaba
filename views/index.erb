@@ -1,18 +1,7 @@
 <html>
     <body>
         <h3>Demo</h3>
-        <form action="/comments/<%= ENV['DEMO_DATABASE_ID'] %>" method="post">
-            <div>
-                <input type="text" name="email" placeholder="Email" value="ousmanedev@gmail.com">
-            </div>
-            <div>
-                <input type="text" name="name" placeholder="Name" value="Rahmane Ousmane">
-            </div>
-            <div>
-                <input type="text" name="body" placeholder="Name" value="Awesome comment">
-            </div>
-            <input type="hidden" name="redirect_uri" value="https://google.com">
-            <input type="submit" name="Submit">
-        </form>
+        <div id="akwaba"></div>
+        <script type="text/javascript" src="/akwaba.js" data-database-id="<%= ENV['DEMO_DATABASE_ID']%>"></script>
     </body>
 </html>
