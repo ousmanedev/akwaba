@@ -7,8 +7,8 @@ class NotionClient
         @access_token = access_token
     end
 
-    def create_page(database_id:, properties:)
-        post('pages', body: { parent: { database_id: database_id }, properties: properties }.to_json)
+    def create_page(parent:, properties:)
+        post('pages', body: { parent: parent, properties: properties }.to_json)
     end
 
     def query_database(database_id:)

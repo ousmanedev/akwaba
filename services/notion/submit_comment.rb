@@ -8,7 +8,7 @@ module Notion
         end
 
         def call
-            client.create_page(database_id: database_id, properties: build_properties)
+            client.create_page(parent: { database_id: database_id }, properties: build_properties)
         end
 
         private
