@@ -26,9 +26,5 @@ module Notion
                 ]
             end.to_h
         end
-
-        def client
-            @client ||= NotionClient.new(ENV['NOTION_TOKEN'])
-        end
     end
 end

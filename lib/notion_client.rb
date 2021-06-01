@@ -11,6 +11,10 @@ class NotionClient
         post('pages', body: { parent: { database_id: database_id }, properties: properties }.to_json)
     end
 
+    def query_database(database_id:)
+        post("databases/#{database_id}/query")
+    end
+
     private
 
     def post(uri, options = {})
