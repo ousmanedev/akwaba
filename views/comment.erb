@@ -7,7 +7,13 @@
             <button class="reply" onclick="function showForm(commentId){ document.getElementById(commentId).style.display='block'; }; showForm('<%= comment.id %>');">Reply</button>
         </span>
 
-        <%= erb :comment_form, locals: { database_id: database_id, parent_id: comment.id, parent_type: 'comment' } %>
     </div>
     <p class="body"> <%= comment.body %> </p>
+    <%= erb :comment_form, locals: { database_id: database_id, parent_id: comment.id, parent_type: 'comment' } %>
+
+    <div class="replies">
+        <% comment.children.each do |child_comment| %>
+            <%= erb :comment, locals: { comment: child_comment, database_id: database_id } %>
+        <% end %>
+    </div>
 </div>

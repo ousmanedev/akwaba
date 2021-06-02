@@ -1,12 +1,13 @@
 require 'date'
 
 class Comment
-    attr_reader :data
+    attr_reader :data, :children
 
     FIELDS = %w(name email body url parent_id).freeze
 
     def initialize(data)
         @data = data
+        @children = []
     end
 
     def id
@@ -15,6 +16,10 @@ class Comment
 
     def date
         Date.parse(@data['created_time']).strftime("%B %d, %Y")
+    end
+
+    def <<(comment)
+        @children << comment
     end
 
     FIELDS.each do |field|
