@@ -11,7 +11,7 @@ AUTOLOAD_PATHS.each { |path| loader.push_dir(path) }
 loader.enable_reloading
 loader.setup
 
-set :allow_origin, "http://localhost:4000"
+set :allow_origin, ENV['CLIENT_HOST']
 set :allow_methods, "GET, POST"
 set :allow_headers, "content-type,if-modified-since"
 set :expose_headers, "location,link"
