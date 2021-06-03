@@ -1,4 +1,4 @@
-<form id="<%= parent_id %>" action="/comments/<%= database_id %>" method="post" class="comment-form" data-parent-type="<%= parent_type %>">
+<form id="<%= parent_id %>" action="<%= ENV['HOST'] %>/comments/<%= database_id %>" method="post" class="comment-form" data-parent-type="<%= parent_type %>">
     <div>
         <input type="text" name="email" placeholder="Email" value="ousmanedev@gmail.com">
     </div>
@@ -9,5 +9,6 @@
         <input type="text" name="body" placeholder="Name" value="Awesome comment">
     </div>
     <input type="hidden" name="parent_id" value="<%= parent_id %>">
+    <input id="url" type="hidden" name="url">
     <input type="submit" name="Submit">
 </form>
