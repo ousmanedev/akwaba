@@ -23,12 +23,12 @@ end
 
 # Submit a comment
 post '/comments/:database_id' do |database_id|
-    form_data = { 'url' => request.referrer }.merge(params.slice(:email, :name, :body, :parent_id))
+    form_data = params.slice(*Comment::FIELDS)
 
     response = Notion::SubmitComment.call(database_id: database_id, form_data: form_data)
 
     if response.success?
-        redirect to(params.fetch(:redirect_uri, request.referrer))
+        redirect to(params.fetch(:redirect_uri, params[:url]))
     else
         body response.inspect
     end
