@@ -23,16 +23,12 @@ module Notion
 
         def build_comment_tree(comments)
             map = {}
-            comments.each do |comment|
-                map[comment.id] = comment
-            end
-
+            comments.each { |comment| map[comment.id] = comment }
             comment_tree =  CommentTree.new
             comments.each do |comment|
                 parent = map.fetch(comment.parent_id) { comment_tree }
                 parent << comment
             end
-
             comment_tree
         end
     end
