@@ -5,7 +5,7 @@
     xhr.onload = function(e) {
         document.querySelector('#akwaba').insertAdjacentHTML('beforeend', xhr.response)
     }
-    xhr.open('get', `comments/${databaseId}`, true);
+    xhr.open('get', `comments/${databaseId}?url=${window.location.href}`, true);
     xhr.send();
  }
 )(document)

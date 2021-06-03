@@ -2,8 +2,9 @@ module Notion
     class GetComments < Base
         attr_reader :database_id
 
-        def initialize(database_id:)
+        def initialize(database_id:, url:)
             @database_id = database_id
+            @url = url
         end
 
         def call
@@ -17,7 +18,16 @@ module Notion
         def fetch_comments
             client.query_database(
                 database_id: database_id,
-                sorts: [ { timestamp: 'created_time', direction: 'ascending' } ]
+                filter: {
+                    property: 'url',
+                    text: { equals: @url }
+                },
+                sorts: [
+                    {
+                        timestamp: 'created_time',
+                        direction: 'ascending'
+                    }
+                ]
             )['results']
         end
 

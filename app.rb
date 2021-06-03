@@ -30,7 +30,7 @@ end
 
 # Get all comments + commenting form
 get '/comments/:database_id' do |database_id|
-    comments = Notion::GetComments.call(database_id: database_id)
+    comments = Notion::GetComments.call(database_id: database_id, url: params[:url])
 
     erb :comments, locals: { comments: comments, database_id: database_id }
 end
