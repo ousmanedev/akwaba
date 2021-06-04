@@ -1,14 +1,14 @@
 <form id="<%= parent_id %>" action="<%= ENV['HOST'] %>/comments/<%= database_id %>" method="post" class="comment-form" data-parent-type="<%= parent_type %>">
-    <div>
-        <input type="text" name="email" placeholder="Email" value="ousmanedev@gmail.com">
+    <div class="input-block">
+        <textarea name="body" id="" cols="30" rows="10" placeholder="Your comment" class ="body-field"></textarea>
     </div>
-    <div>
-        <input type="text" name="name" placeholder="Name" value="Rahmane Ousmane">
+    <div class="input-block">
+        <input type="text" name="name" placeholder="Your name (required)" value="" class="name-field">
     </div>
-    <div>
-        <input type="text" name="body" placeholder="Name" value="Awesome comment">
+    <div class="input-block">
+        <input type="text" name="email" placeholder="Your email (optional)" value="" class="email-field">
     </div>
     <input type="hidden" name="parent_id" value="<%= parent_id %>">
     <input id="url" type="hidden" name="url">
-    <input type="submit" name="Submit">
+    <input type="submit" name="Submit" class="submit-field">
 </form>
