@@ -18,6 +18,10 @@ class Comment
         Date.parse(@data['created_time']).strftime("%B %d, %Y")
     end
 
+    def approved?
+        ENV['ALLOW_MODERATION'] && @data['properties']['is_approved']['checkbox']
+    end
+
     def <<(comment)
         @children << comment
     end

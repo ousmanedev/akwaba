@@ -19,8 +19,16 @@ module Notion
             client.query_database(
                 database_id: database_id,
                 filter: {
-                    property: 'url',
-                    text: { equals: @url }
+                    and: [
+                        {
+                            property: 'url',
+                            text: { equals: @url }
+                        },
+                        {
+                            property: 'is_approved',
+                            checkbox: { equals: true }
+                        }
+                    ]
                 },
                 sorts: [
                     {

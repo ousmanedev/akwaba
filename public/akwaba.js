@@ -18,6 +18,7 @@
     }
 
     function setupForm(form) {
+        if(!form) { return; }
         form.addEventListener('submit', submitComment);
         form.querySelector('input#url').value = window.location.href;
         form.parentElement.querySelector('button.reply').addEventListener('click', function(event) {
