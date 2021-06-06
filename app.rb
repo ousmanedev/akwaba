@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/cors'
 require 'dotenv/load'
 require "zeitwerk"
+require 'byebug'
 
 set :public_folder, File.join(Dir.pwd, 'public')
 
@@ -23,15 +24,16 @@ end
 
 # Submit a comment
 post '/comments/:database_id' do |database_id|
-    form_data = params.slice(*Comment::FIELDS)
+    content_type :json
 
+    form_data = params.slice(*Comment::FIELDS)
     response = Notion::SubmitComment.call(database_id: database_id, form_data: form_data)
 
-    if response.success?
-        redirect to(params.fetch(:redirect_uri, params[:url]))
-    else
-        body response.inspect
-    end
+    comment = Comment.new(response)
+    {
+        id: comment.id,
+        html: erb(:comment, locals: { comment: comment, database_id: database_id })
+    }.to_json
 end
 
 # Get all comments + commenting form

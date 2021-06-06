@@ -24,7 +24,8 @@ class Comment
 
     FIELDS.each do |field|
         define_method field do
-            content = Array(@data.dig('properties', field, 'rich_text'))[0]
+            property_object = @data.dig('properties', field)
+            content = Array(property_object[property_object['type']])[0]
             Hash(content).dig('text', 'content')
         end
     end
