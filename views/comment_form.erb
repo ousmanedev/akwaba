@@ -1,9 +1,9 @@
 <form id="<%= parent_id %>" action="<%= ENV['HOST'] %>/comments/<%= database_id %>" method="post" class="comment-form" data-parent-type="<%= parent_type %>">
     <div class="input-block">
-        <textarea name="body" id="" cols="30" rows="10" placeholder="Your comment" class ="body-field"></textarea>
+        <textarea name="body" id="" cols="30" rows="10" placeholder="Your comment" class ="body-field" required></textarea>
     </div>
     <div class="input-block">
-        <input type="text" name="name" placeholder="Your name (required)" value="" class="name-field">
+        <input type="text" name="name" placeholder="Your name (required)" value="" class="name-field" required>
     </div>
     <div class="input-block">
         <input type="text" name="email" placeholder="Your email (optional)" value="" class="email-field">
