@@ -13,3 +13,5 @@ gem "zeitwerk", "~> 2.4"
 gem "byebug", "~> 11.1"
 
 gem "sinatra-cors", "~> 1.2"
+
+gem "pry", "~> 0.14.1"
