@@ -18,24 +18,8 @@ module Notion
         def fetch_comments
             client.query_database(
                 database_id: database_id,
-                filter: {
-                    and: [
-                        {
-                            property: 'url',
-                            text: { equals: @url }
-                        },
-                        {
-                            property: 'is_approved',
-                            checkbox: { equals: true }
-                        }
-                    ]
-                },
-                sorts: [
-                    {
-                        timestamp: 'created_time',
-                        direction: 'ascending'
-                    }
-                ]
+                filter: { and: filters },
+                sorts: [{ timestamp: 'created_time', direction: 'ascending' }]
             )['results']
         end
 
@@ -48,6 +32,20 @@ module Notion
                 parent << comment
             end
             comment_tree
+        end
+
+        def filters
+            filters = [url_filter]
+            filters.push(is_approved_filter) if Comment.moderation_on?
+            filters
+        end
+
+        def url_filter
+            { property: 'url', text: { equals: @url } }
+        end
+
+        def is_approved_filter
+            { property: 'is_approved', checkbox: { equals: true } }
         end
     end
 end

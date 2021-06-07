@@ -4,6 +4,11 @@ class Comment
     attr_reader :data, :children
 
     FIELDS = %w(name email body url parent_id).freeze
+    class << self
+        def moderation_on?
+            !ENV['MODERATION_ON'].nil?
+        end
+    end
 
     def initialize(data)
         @data = data
@@ -19,7 +24,7 @@ class Comment
     end
 
     def approved?
-        return true if ENV['ALLOW_MODERATION'].nil?
+        return true unless Comment.moderation_on?
 
         @data['properties']['is_approved']['checkbox']
     end
