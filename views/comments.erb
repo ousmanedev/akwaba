@@ -1,5 +1,5 @@
 <div id="akwaba-comments">
-    <%= erb :comment_form, locals: { database_id: database_id, parent_type: 'root', parent_id: '' } %>
+    <%= erb :comment_form, locals: { database_id: database_id, parent_type: 'root', parent_id: 'root' } %>
 
     <% comments.each do |comment| %>
         <%= erb :comment, locals: { comment: comment, database_id: database_id } %>
