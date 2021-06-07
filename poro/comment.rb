@@ -19,7 +19,9 @@ class Comment
     end
 
     def approved?
-        ENV['ALLOW_MODERATION'] && @data['properties']['is_approved']['checkbox']
+        return true if ENV['ALLOW_MODERATION'].nil?
+
+        @data['properties']['is_approved']['checkbox']
     end
 
     def <<(comment)

@@ -1,4 +1,9 @@
 <div class="comment-box">
+    <% unless comment.approved? %>
+        <div class="moderation-notice">
+            Thanks! Your comment is pending approval. For now, it's only visible to you. Once approved, it will appear to all visitors.
+        </div>
+    <% end %>
     <div>
         <span class="name"> <%= comment.name %> </span>
         -

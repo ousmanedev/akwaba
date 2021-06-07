@@ -30,16 +30,10 @@ post '/comments/:database_id' do |database_id|
     response = Notion::SubmitComment.call(database_id: database_id, form_data: form_data)
     comment = Comment.new(response)
 
-    if comment.approved?
-        {
-            id: comment.id,
-            html: erb(:comment, locals: { comment: comment, database_id: database_id })
-        }.to_json
-    else
-        {
-            html: erb(:comment_pending_approval)
-        }.to_json
-    end
+    {
+        id: comment.id,
+        html: erb(:comment, locals: { comment: comment, database_id: database_id })
+    }.to_json
 end
 
 # Get all comments + commenting form
