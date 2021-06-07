@@ -1,0 +1,29 @@
+{
+  "name": "Akwaba",
+  "description": "Lightweight commenting platform using Notion as a backend",
+  "website": "https://github.com/ousmanedev/akwaba",
+  "repository": "https://github.com/ousmanedev/akwaba",
+  "success_url": "/demo",
+  "env": {
+    "NOTION_TOKEN": {
+      "description": "Your notion API token",
+      "required": true
+    },
+    "HOST": {
+      "description": "This app URL (yourapp.herokuapp.com)",
+      "required": true
+    },
+    "CLIENT_HOST": {
+      "description": "Your website (integrating Akwaba) url",
+      "required": true
+    },
+    "MODERATION_ON": {
+      "description": "Set this, if you want comments moderation",
+      "required": false
+    },
+    "DEMO_DATABASE_ID": {
+      "description": "ID of the notion database, to use on the demo page",
+      "required": false
+    }
+  }
+}
