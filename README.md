@@ -57,7 +57,7 @@ If your Akwaba instance is available at `akwaba.example.com` and your notion dat
 
 ```js
 <div id="my-comments"></div>
-<script defer src="https://akwaba.example.com/akawaba.js" ata-database-id="123456789" data-container="#my-comments"></script>
+<script defer src="https://akwaba.example.com/akawaba.js" data-database-id="123456789" data-container="#my-comments"></script>
 ```
 
 ## Usage
