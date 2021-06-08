@@ -23,7 +23,8 @@ class NotionClient
             options.merge(
                 headers: {
                     'Authorization' => "Bearer #{@access_token}",
-                    'Content-Type' => 'application/json'
+                    'Content-Type' => 'application/json',
+                    'Notion-Version' => '2021-05-13'
                 },
                 debug_output: $stdout,
             )
