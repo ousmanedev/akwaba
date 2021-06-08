@@ -20,7 +20,7 @@ module Notion
                     [
                         {
                             type: 'text',
-                            text: { content: Rack::Utils.escape_html(form_data[property_name]) }
+                            text: { content: form_data[property_name] }
                         }
                     ]
                 ]
