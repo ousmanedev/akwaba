@@ -36,8 +36,10 @@ class Comment
     FIELDS.each do |field|
         define_method field do
             property_object = @data.dig('properties', field)
-            content = Array(property_object[property_object['type']])[0]
-            Hash(content).dig('text', 'content')
+            content_object = Array(property_object[property_object['type']])[0]
+            content = Hash(content_object).dig('text', 'content')
+
+            Rack::Utils.escape_html(content)
         end
     end
 end
