@@ -1,18 +1,18 @@
 # Akwaba
-Lightweight commenting platform using Notion as a backend
+A lightweight commenting platform using Notion as a backend
 
 [Demo page embedding Akwaba](https://akwabademo.herokuapp.com) - [Demo Notion database](https://www.notion.so/20a56f94db8d4ba59d94a82bd7b9129e?v=edcdfaaaec3a4f80b52715f2a3c95d59)
 
-## Summary
+## Summary 
 Akwaba is a self hosted solution that you can embed in your website, and have your visitors add comments.
 
-It uses Notion databases to store and retrieve all the data, vie Notion API. No need to configure and manage a Relational Database.
+It uses Notion databases to store and retrieve all the data, via Notion API. No need to configure and manage a Relational Database.
 
 Akwaba acts like a bridge between your website, and your Notion database by essentially doing 2 things:
 - Taking comments submitted by visitors on your website, and storing them in your Notion database
 - Taking comments from your Notion database, and displaying them on your website for your visitors
 
-From Notion, you can approve/disable a comment. You can take advantage of Notion powerful databases, and filter comments by page url, authors name, email.
+From Notion, you can approve/disable a comment. You can take advantage of Notion's powerful databases, and filter comments by page URL, author's name and email.
 
 Make sure to play with the demo page and see the results in the demo notion database.
 
